@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IG Content Builder — Dari topik jadi carousel</title>
+  <meta name="description" content="Pipeline AI untuk riset, menulis, dan merender carousel Instagram siap posting.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309090d'/%3E%3Cpath d='M18 46V18h8v20h20v8H18Z' fill='%2339ff6a'/%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#09090d', paper: '#f5f1e9', line: '#24242d' },
+          fontFamily: {
+            display: ['Oswald', 'Arial Narrow', 'sans-serif'],
+            body: ['Inter', 'Arial', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; }
+    html { scroll-behavior: smooth; }
+    body { background: #09090d; color: #f5f1e9; font-family: Inter, Arial, sans-serif; }
+    .grain { background-image: radial-gradient(rgba(255,255,255,.045) .6px, transparent .6px); background-size: 20px 20px; }
+    .rule { border-color: #24242d; }
+    .display { font-family: Oswald, 'Arial Narrow', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .slide-card { aspect-ratio: 4 / 5; overflow: hidden; background: #15151c; }
+    .slide-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+    .slide-card:hover img { transform: scale(1.035); }
+    .sample-strip::-webkit-scrollbar { height: 8px; }
+    .sample-strip::-webkit-scrollbar-thumb { background: #3a3a45; border-radius: 99px; }
+    .sample-strip { scrollbar-color: #3a3a45 transparent; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <script>
+    // Replace this placeholder after the Cloudflare tunnel is live.
+    const CTA_URL = '#coba';
+  </script>
+
+  <header class="grain border-b rule">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+      <a href="#top" class="mono text-xs tracking-[.25em] text-white/70">IG / CONTENT BUILDER</a>
+      <a href="#templates" class="mono hidden text-xs uppercase tracking-[.2em] text-white/50 transition hover:text-white sm:block">Lihat template ↓</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="grain border-b rule">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.06fr_.94fr] lg:items-center lg:gap-20 lg:py-28">
+        <div>
+          <p class="mono mb-8 text-xs uppercase tracking-[.28em] text-[#39ff6a]">PUBLIC DEMO / 7 SLIDES / PNG READY</p>
+          <h1 class="display max-w-3xl text-[clamp(3.5rem,8vw,7.6rem)] font-semibold uppercase leading-[.86] tracking-[-.035em] text-white">Dari topik jadi carousel.</h1>
+          <p class="mt-8 max-w-xl text-lg leading-8 text-white/60 sm:text-xl">Ketik ide apa saja. Pipeline ini meriset, menulis, dan merender carousel Instagram siap posting dengan struktur konten yang jelas.</p>
+          <div class="mt-10 flex flex-wrap items-center gap-5">
+            <a data-cta href="#coba" class="inline-flex items-center gap-4 bg-[#39ff6a] px-6 py-4 text-sm font-extrabold uppercase tracking-[.12em] text-black transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#39ff6a] focus:ring-offset-2 focus:ring-offset-ink">Coba sekarang <span aria-hidden="true">↗</span></a>
+            <span class="mono text-xs text-white/40">tanpa Canva · tanpa design skill</span>
+          </div>
+        </div>
+        <div class="relative min-h-[430px] sm:min-h-[560px]">
+          <div class="absolute left-[5%] top-[12%] w-[47%] rotate-[-7deg] border border-white/10 bg-black p-2 shadow-2xl shadow-black/60 sm:p-3"><img src="assets/templates/samples/editorial/01.png" alt="Contoh carousel editorial" loading="eager"></div>
+          <div class="absolute right-[4%] top-[3%] w-[49%] rotate-[6deg] border border-[#39ff6a]/30 bg-black p-2 shadow-2xl shadow-black/70 sm:p-3"><img src="assets/templates/samples/code/01.png" alt="Contoh carousel code" loading="eager"></div>
+          <div class="absolute bottom-[0] left-[25%] w-[48%] rotate-[2deg] border border-white/10 bg-black p-2 shadow-2xl shadow-black/70 sm:p-3"><img src="assets/templates/samples/tips/01.png" alt="Contoh carousel tips" loading="eager"></div>
+          <div class="absolute bottom-3 left-0 mono text-[10px] uppercase tracking-[.2em] text-white/35">Riset → tulis → render</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="templates" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+      <div class="mb-12 flex flex-col justify-between gap-5 border-b rule pb-7 sm:flex-row sm:items-end">
+        <div><p class="mono mb-4 text-xs tracking-[.25em] text-white/40">01 / VISUAL SYSTEM</p><h2 class="display text-5xl uppercase leading-none sm:text-7xl">Enam karakter<br><span class="text-white/35">untuk satu ide.</span></h2></div>
+        <p class="max-w-sm text-sm leading-6 text-white/50">Bukan satu template yang dipaksa untuk semua topik. Pilih bahasa visual yang paling tepat untuk pesanmu.</p>
+      </div>
+      <div class="grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="group border-t-2 border-[#49a4ff] pt-4"><div class="slide-card"><img src="assets/templates/tips-intro.png" alt="Tips Content preview" loading="lazy"></div><div class="mt-4 flex justify-between gap-4"><div><h3 class="display text-2xl uppercase">Tips Content</h3><p class="mt-1 text-sm text-white/45">Data dan fakta dalam lima poin tajam.</p></div><span class="mono text-xs text-[#49a4ff]">01</span></div></article>
+        <article class="group border-t-2 border-[#b8720a] pt-4"><div class="slide-card"><img src="assets/templates/code-intro.png" alt="Code Content preview" loading="lazy"></div><div class="mt-4 flex justify-between gap-4"><div><h3 class="display text-2xl uppercase">Code Content</h3><p class="mt-1 text-sm text-white/45">Breakdown teknis dengan hierarki editorial.</p></div><span class="mono text-xs text-[#b8720a]">02</span></div></article>
+        <article class="group border-t-2 border-[#e3a530] pt-4"><div class="slide-card"><img src="assets/templates/insight-intro.png" alt="Insight Content preview" loading="lazy"></div><div class="mt-4 flex justify-between gap-4"><div><h3 class="display text-2xl uppercase">Insight Content</h3><p class="mt-1 text-sm text-white/45">Quote card untuk claim yang kuat.</p></div><span class="mono text-xs text-[#e3a530]">03</span></div></article>
+        <article class="group border-t-2 border-[#ff4c55] pt-4"><div class="slide-card"><img src="assets/templates/template1-intro.png" alt="Template1 Content preview" loading="lazy"></div><div class="mt-4 flex justify-between gap-4"><div><h3 class="display text-2xl uppercase">Template1</h3><p class="mt-1 text-sm text-white/45">Tip praktis dengan kanvas putih dan coral.</p></div><span class="mono text-xs text-[#ff4c55]">04</span></div></article>
+        <article class="group border-t-2 border-[#c9a227] pt-4"><div class="slide-card"><img src="assets/templates/editorial-intro.png" alt="Editorial Content preview" loading="lazy"></div><div class="mt-4 flex justify-between gap-4"><div><h3 class="display text-2xl uppercase">Editorial Content</h3><p class="mt-1 text-sm text-white/45">Magazine premium untuk topik reflektif.</p></div><span class="mono text-xs text-[#c9a227]">05</span></div></article>
+        <article class="group border-t-2 border-[#39ff6a] pt-4"><div class="slide-card"><img src="assets/templates/momentum-intro.png" alt="Momentum Content preview" loading="lazy"></div><div class="mt-4 flex justify-between gap-4"><div><h3 class="display text-2xl uppercase">Momentum Content</h3><p class="mt-1 text-sm text-white/45">Growth tips dengan energi dan hook yang kuat.</p></div><span class="mono text-xs text-[#39ff6a]">06</span></div></article>
+      </div>
+    </section>
+
+    <section class="border-y rule bg-[#0d0d12] py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p class="mono mb-4 text-xs tracking-[.25em] text-white/40">02 / GENERATED OUTPUT</p><h2 class="display text-5xl uppercase leading-none sm:text-7xl">Hasil nyata,<br><span class="text-[#39ff6a]">bukan mockup.</span></h2></div><p class="max-w-sm text-sm leading-6 text-white/50">Semua strip di bawah ini dibuat oleh pipeline demo: tujuh slide dari satu topik.</p></div>
+        <div class="space-y-12">
+          <div><div class="mb-3 flex items-center justify-between"><p class="mono text-xs text-[#49a4ff]">TIPS CONTENT / COFFEE GRINDER</p><span class="mono text-[10px] text-white/35">01—07</span></div><div class="sample-strip flex gap-3 overflow-x-auto pb-3"> <script>for (let i=1;i<=7;i++) document.write(`<div class="slide-card min-w-[190px] flex-none sm:min-w-[225px]"><img src="assets/templates/samples/tips/0${i}.png" alt="Tips sample slide ${i}" loading="lazy"></div>`);</script></div></div>
+          <div><div class="mb-3 flex items-center justify-between"><p class="mono text-xs text-[#b8720a]">CODE CONTENT / BUN VS NODE.JS</p><span class="mono text-[10px] text-white/35">01—07</span></div><div class="sample-strip flex gap-3 overflow-x-auto pb-3"> <script>for (let i=1;i<=7;i++) document.write(`<div class="slide-card min-w-[190px] flex-none sm:min-w-[225px]"><img src="assets/templates/samples/code/0${i}.png" alt="Code sample slide ${i}" loading="lazy"></div>`);</script></div></div>
+          <div><div class="mb-3 flex items-center justify-between"><p class="mono text-xs text-[#c9a227]">EDITORIAL CONTENT / MORNING ROUTINES</p><span class="mono text-[10px] text-white/35">01—07</span></div><div class="sample-strip flex gap-3 overflow-x-auto pb-3"> <script>for (let i=1;i<=7;i++) document.write(`<div class="slide-card min-w-[190px] flex-none sm:min-w-[225px]"><img src="assets/templates/samples/editorial/0${i}.png" alt="Editorial sample slide ${i}" loading="lazy"></div>`);</script></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+      <div class="grid gap-12 lg:grid-cols-[.75fr_1.25fr] lg:gap-24"><div><p class="mono mb-4 text-xs tracking-[.25em] text-white/40">03 / THE PIPELINE</p><h2 class="display text-5xl uppercase leading-none sm:text-7xl">Ketik sekali.<br><span class="text-white/35">Terbitkan lebih cepat.</span></h2></div><div class="divide-y rule border-y">
+        <div class="grid gap-4 py-7 sm:grid-cols-[100px_1fr] sm:items-start"><span class="mono text-2xl text-[#49a4ff]">01</span><div><h3 class="display text-3xl uppercase">Ketik topikmu</h3><p class="mt-2 max-w-xl text-sm leading-6 text-white/50">Mulai dari satu ide. Topik bebas, selama aman dan punya sesuatu yang berguna untuk dibagikan.</p></div></div>
+        <div class="grid gap-4 py-7 sm:grid-cols-[100px_1fr] sm:items-start"><span class="mono text-2xl text-[#e3a530]">02</span><div><h3 class="display text-3xl uppercase">AI meriset otomatis</h3><p class="mt-2 max-w-xl text-sm leading-6 text-white/50">Pipeline mencari sumber, fakta, dan sudut pandang yang membuat carousel tidak berhenti di definisi generik.</p></div></div>
+        <div class="grid gap-4 py-7 sm:grid-cols-[100px_1fr] sm:items-start"><span class="mono text-2xl text-[#c9a227]">03</span><div><h3 class="display text-3xl uppercase">AI menulis tujuh slide</h3><p class="mt-2 max-w-xl text-sm leading-6 text-white/50">Hook, lima slide isi, dan closing disusun dengan struktur yang sesuai template.</p></div></div>
+        <div class="grid gap-4 py-7 sm:grid-cols-[100px_1fr] sm:items-start"><span class="mono text-2xl text-[#39ff6a]">04</span><div><h3 class="display text-3xl uppercase">Render jadi PNG</h3><p class="mt-2 max-w-xl text-sm leading-6 text-white/50">Output akhir berupa gambar 1080×1350 yang bisa langsung kamu review dan posting.</p></div></div>
+      </div></div>
+    </section>
+
+    <section id="coba" class="grain border-y rule bg-[#101017]">
+      <div class="mx-auto max-w-5xl px-5 py-24 text-center sm:px-8 sm:py-32"><p class="mono mb-6 text-xs tracking-[.25em] text-[#39ff6a]">04 / YOUR TURN</p><h2 class="display text-6xl uppercase leading-[.88] sm:text-8xl">Punya topik?<br><span class="text-white/35">Jadikan carousel.</span></h2><p class="mx-auto mt-7 max-w-lg text-sm leading-6 text-white/50">Coba demo publik dan lihat bagaimana satu ide berubah menjadi tujuh slide yang siap kamu review.</p><a data-cta href="#coba" class="mt-9 inline-flex items-center gap-4 bg-[#39ff6a] px-7 py-4 text-sm font-extrabold uppercase tracking-[.12em] text-black transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#39ff6a] focus:ring-offset-2 focus:ring-offset-[#101017]">Coba sekarang — gratis <span aria-hidden="true">↗</span></a><p class="mono mt-5 text-[10px] uppercase tracking-[.18em] text-white/30">5 percobaan gratis per hari · hasil dikirim ke email</p></div>
+    </section>
+  </main>
+
+  <footer class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8"><p class="mono text-[10px] uppercase tracking-[.16em] text-white/35">IG / CONTENT BUILDER · DEMO</p><p class="text-xs text-white/35">Dibangun dengan n8n, OpenRouter, dan Puppeteer. Kualitas dapat bervariasi menurut topik.</p></footer>
+
+  <script>
+    document.querySelectorAll('[data-cta]').forEach((link) => link.href = CTA_URL);
+  </script>
+</body>
+</html>
