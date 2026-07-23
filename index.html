@@ -32,13 +32,16 @@
     .rule { border-color: #24242d; }
     .display { font-family: Oswald, 'Arial Narrow', sans-serif; }
     .mono { font-family: 'JetBrains Mono', monospace; }
-    .slide-card { aspect-ratio: 4 / 5; overflow: hidden; background: #15151c; }
-    .slide-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
-    .slide-card:hover img { transform: scale(1.035); }
-    .sample-strip { scrollbar-width: none; scroll-snap-type: x mandatory; touch-action: pan-x; }
-    .sample-strip::-webkit-scrollbar { display: none; }
-    .sample-strip > .slide-card { scroll-snap-align: start; }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+    .slide-card { aspect-ratio: 4 / 5; overflow: hidden; background: #15151c; border-radius: 10px; border: 1px solid rgba(255,255,255,.07); box-shadow: 0 12px 32px -12px rgba(0,0,0,.7); }
+    .slide-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+    .slide-card:hover img { transform: scale(1.04); }
+    .slide-badge { position: absolute; bottom: 8px; left: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: rgba(255,255,255,.85); background: rgba(0,0,0,.55); padding: 2px 7px; border-radius: 99px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .strip-wrapper { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+    .marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 42s linear infinite; will-change: transform; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-track:active { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } .strip-wrapper { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
   </style>
 </head>
 <body class="overflow-x-hidden">
@@ -94,9 +97,9 @@
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p class="mono mb-4 text-xs tracking-[.25em] text-white/40">02 / GENERATED OUTPUT</p><h2 class="display text-5xl uppercase leading-none sm:text-7xl">Hasil nyata,<br><span class="text-[#39ff6a]">bukan mockup.</span></h2></div><p class="max-w-sm text-sm leading-6 text-white/50">Semua strip di bawah ini dibuat oleh pipeline demo: tujuh slide dari satu topik.</p></div>
         <div class="space-y-12">
-           <div><div class="mb-3 flex items-center justify-between"><p class="mono text-xs text-[#49a4ff]">TIPS CONTENT / COFFEE GRINDER</p><span class="mono text-[10px] text-white/35">01—07</span></div><div class="sample-strip flex gap-3 overflow-x-auto pb-3" data-auto-carousel> <script>for (let i=1;i<=7;i++) document.write(`<div class="slide-card w-[148px] flex-none sm:w-[170px] lg:w-[185px]"><img src="assets/templates/samples/tips/0${i}.png" alt="Tips sample slide ${i}" loading="lazy"></div>`);</script></div></div>
-           <div><div class="mb-3 flex items-center justify-between"><p class="mono text-xs text-[#b8720a]">CODE CONTENT / BUN VS NODE.JS</p><span class="mono text-[10px] text-white/35">01—07</span></div><div class="sample-strip flex gap-3 overflow-x-auto pb-3" data-auto-carousel> <script>for (let i=1;i<=7;i++) document.write(`<div class="slide-card w-[148px] flex-none sm:w-[170px] lg:w-[185px]"><img src="assets/templates/samples/code/0${i}.png" alt="Code sample slide ${i}" loading="lazy"></div>`);</script></div></div>
-           <div><div class="mb-3 flex items-center justify-between"><p class="mono text-xs text-[#c9a227]">EDITORIAL CONTENT / MORNING ROUTINES</p><span class="mono text-[10px] text-white/35">01—07</span></div><div class="sample-strip flex gap-3 overflow-x-auto pb-3" data-auto-carousel> <script>for (let i=1;i<=7;i++) document.write(`<div class="slide-card w-[148px] flex-none sm:w-[170px] lg:w-[185px]"><img src="assets/templates/samples/editorial/0${i}.png" alt="Editorial sample slide ${i}" loading="lazy"></div>`);</script></div></div>
+          <div><div class="mb-4 flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#49a4ff]"></span><p class="mono text-xs text-[#49a4ff]">TIPS CONTENT / COFFEE GRINDER</p></div><div class="strip-wrapper"><div class="marquee-track"> <script>for(let p=0;p<2;p++) for(let i=1;i<=7;i++) document.write(`<div class="slide-card w-[150px] flex-none sm:w-[175px] lg:w-[200px] relative"><img src="assets/templates/samples/tips/0${i}.png" alt="Tips sample slide ${i}" loading="lazy"><span class="slide-badge">0${i}/07</span></div>`);</script></div></div></div>
+          <div><div class="mb-4 flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#b8720a]"></span><p class="mono text-xs text-[#b8720a]">CODE CONTENT / BUN VS NODE.JS</p></div><div class="strip-wrapper"><div class="marquee-track"> <script>for(let p=0;p<2;p++) for(let i=1;i<=7;i++) document.write(`<div class="slide-card w-[150px] flex-none sm:w-[175px] lg:w-[200px] relative"><img src="assets/templates/samples/code/0${i}.png" alt="Code sample slide ${i}" loading="lazy"><span class="slide-badge">0${i}/07</span></div>`);</script></div></div></div>
+          <div><div class="mb-4 flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#c9a227]"></span><p class="mono text-xs text-[#c9a227]">EDITORIAL CONTENT / MORNING ROUTINES</p></div><div class="strip-wrapper"><div class="marquee-track"> <script>for(let p=0;p<2;p++) for(let i=1;i<=7;i++) document.write(`<div class="slide-card w-[150px] flex-none sm:w-[175px] lg:w-[200px] relative"><img src="assets/templates/samples/editorial/0${i}.png" alt="Editorial sample slide ${i}" loading="lazy"><span class="slide-badge">0${i}/07</span></div>`);</script></div></div></div>
         </div>
       </div>
     </section>
@@ -118,24 +121,6 @@
   <footer class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8"><p class="mono text-[10px] uppercase tracking-[.16em] text-white/35">IG / CONTENT BUILDER · DEMO</p><p class="text-xs text-white/35">Dibangun dengan n8n, OpenRouter, dan Puppeteer. Kualitas dapat bervariasi menurut topik.</p></footer>
 
   <script>
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('[data-auto-carousel]').forEach((strip) => {
-        let timer;
-        const pause = () => clearInterval(timer);
-        const resume = () => {
-          pause();
-          timer = setInterval(() => {
-            const firstCard = strip.querySelector('.slide-card');
-            const step = firstCard ? firstCard.getBoundingClientRect().width + 12 : 0;
-            const atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
-            strip.scrollTo({ left: atEnd ? 0 : strip.scrollLeft + step, behavior: 'smooth' });
-          }, 2600);
-        };
-        ['mouseenter', 'focusin', 'touchstart', 'pointerdown'].forEach((event) => strip.addEventListener(event, pause, { passive: true }));
-        ['mouseleave', 'focusout', 'touchend', 'pointerup'].forEach((event) => strip.addEventListener(event, resume, { passive: true }));
-        resume();
-      });
-    }
     document.querySelectorAll('[data-cta]').forEach((link) => link.href = CTA_URL);
   </script>
 </body>
